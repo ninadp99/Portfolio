@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ninad Pawar — Product Manager</title>
+<meta name="description" content="Product Manager building enterprise data + AI platforms at American Express. 6+ years across FinTech, EdTech, and aviation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F2EA;
+    --paper-2: #FBFAF5;
+    --ink: #141B28;
+    --ink-2: #4A5364;
+    --rule: #D8D2C2;
+    --accent: #2F5D50;
+    --accent-2: #3D7566;
+    --highlight: #B8873A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.78rem; letter-spacing: 0.02em; }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(245, 242, 234, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 1rem 0;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-logo em { color: var(--accent); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  /* PROFILE PHOTO */
+  .about-photo-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 2rem;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--rule);
+    filter: grayscale(15%);
+    transition: filter 0.4s ease;
+  }
+  .about-photo:hover {
+    filter: grayscale(0);
+  }
+  .about-photo-label {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 0.3rem 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 10rem 0 6rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .container { position: relative; z-index: 2; }
+  .eyebrow {
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: inline-block;
+  }
+  .hero-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.75rem, 8vw, 6.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    max-width: 900px;
+  }
+  .hero-title em { color: var(--accent); font-style: italic; }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--ink-2);
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+    line-height: 1.55;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 1px solid var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+
+  /* GRAPH signature */
+  .hero-graph {
+    position: absolute;
+    right: -4rem;
+    top: 7rem;
+    width: 440px;
+    height: 440px;
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-graph circle {
+    animation: pulse 4s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .hero-graph circle:nth-child(2) { animation-delay: 0.4s; }
+  .hero-graph circle:nth-child(3) { animation-delay: 0.8s; }
+  .hero-graph circle:nth-child(4) { animation-delay: 1.2s; }
+  .hero-graph circle:nth-child(5) { animation-delay: 1.6s; }
+  .hero-graph circle:nth-child(6) { animation-delay: 2s; }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.3; }
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+    align-items: baseline;
+  }
+  .section-num {
+    color: var(--accent);
+    padding-top: 0.5rem;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.85rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1.08rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+  }
+  .about-text p:last-child { color: var(--ink-2); }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2.25rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
+  .stat-num {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 3.25rem;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    color: var(--ink-2);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  /* TIMELINE */
+  .timeline { display: block; }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .tl-item:last-child { border-bottom: 1px solid var(--rule); }
+  .tl-meta { color: var(--ink-2); }
+  .tl-date { display: block; margin-bottom: 0.4rem; color: var(--accent); }
+  .tl-loc { display: block; }
+  .tl-role {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.65rem;
+    line-height: 1.15;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .tl-company {
+    color: var(--ink-2);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+  .tl-bullets { list-style: none; }
+  .tl-bullets li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 0.98rem;
+  }
+  .tl-bullets li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  .project {
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .project:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .project-tag {
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+  .project-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .project-desc {
+    color: var(--ink-2);
+    margin-bottom: 1.5rem;
+    line-height: 1.55;
+    font-size: 0.98rem;
+    flex-grow: 1;
+  }
+  .project-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .project-metric {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 4rem;
+  }
+  .skill-group h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .skill-group h3::before {
+    content: "// ";
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    vertical-align: middle;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    padding: 0.4rem 0.85rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+  .edu-card {
+    padding: 2.25rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
+  .edu-date {
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .edu-degree {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .edu-school {
+    color: var(--ink-2);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .edu-focus {
+    color: var(--ink);
+    font-size: 0.9rem;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .achievement {
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    transition: all 0.2s;
+  }
+  .achievement:hover {
+    border-color: var(--accent);
+  }
+  .achievement-icon {
+    color: var(--accent);
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .achievement h4 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.005em;
+  }
+  .achievement p {
+    color: var(--ink-2);
+    font-size: 0.85rem;
+  }
+
+  /* HIGHLIGHTS / TESTIMONIALS */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+  .highlight-card {
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .highlight-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .highlight-card.full-width {
+    grid-column: 1 / -1;
+  }
+  .highlight-source {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .highlight-source-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .highlight-source-text {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    line-height: 1.3;
+  }
+  .highlight-source-text strong {
+    color: var(--ink);
+    display: block;
+  }
+  .highlight-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.01em;
+  }
+  .highlight-excerpt {
+    color: var(--ink-2);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+  .highlight-excerpt blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    margin: 0;
+    font-style: italic;
+  }
+  .highlight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .highlight-tag {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+  }
+  .highlight-img {
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid var(--rule);
+    object-fit: cover;
+    max-height: 260px;
+  }
+
+  /* CERTIFICATES SECTION */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .cert-card {
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .cert-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cert-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+    transition: transform 0.3s;
+  }
+  .cert-card:hover .cert-img-wrap img {
+    transform: scale(1.03);
+  }
+  .cert-info {
+    padding: 1.25rem;
+  }
+  .cert-info h4 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  .cert-info p {
+    color: var(--ink-2);
+    font-size: 0.82rem;
+  }
+  .cert-info .cert-date {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    margin-top: 0.4rem;
+    display: block;
+  }
+  .cert-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 0.2rem 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    z-index: 2;
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(20,27,40,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* CONTACT */
+  .contact { padding: 7rem 0; }
+  .contact-inner { max-width: 900px; }
+  .contact-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+  .contact-title em { color: var(--accent); font-style: italic; }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  .contact-link {
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 0.35rem;
+  }
+  .contact-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .contact-link-label {
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+  }
+  .contact-link-value {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.4rem;
+    letter-spacing: -0.005em;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-2);
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .projects-grid, .skills-grid, .edu-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .skills-grid { gap: 2.5rem; }
+    .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-graph { width: 300px; height: 300px; right: -6rem; top: 12rem; opacity: 0.15; }
+  }
+  @media (max-width: 720px) {
+    section { padding: 4rem 0; }
+    .hero { padding: 7rem 0 4rem; }
+    .container { padding: 0 1.25rem; }
+    .nav-inner { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--paper);
+      flex-direction: column;
+      padding: 1rem 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      gap: 1.25rem;
+    }
+    .nav-toggle { display: block; }
+    .section-header { flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+    .tl-item { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+    .stats { grid-template-columns: 1fr 1fr; padding: 1.5rem; gap: 1.5rem; }
+    .stat-num { font-size: 2.5rem; }
+    .hero-graph { display: none; }
+    .contact-links { gap: 1.5rem; flex-direction: column; }
+  }
+  @media (max-width: 460px) {
+    .achievements-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+  }
+
+  /* A11Y */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-graph circle { animation: none; }
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Ninad <em>Pawar</em></a>
+    <button class="nav-toggle mono" aria-label="Toggle menu" aria-expanded="false">[menu]</button>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#certifications">certifications</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <span class="mono eyebrow">// product manager · enterprise data + ai</span>
+    <h1 class="hero-title">
+      Building the systems that turn data into <em>decisions.</em>
+    </h1>
+    <p class="hero-sub">
+      Product Manager at American Express, leading three enterprise data platforms
+      powering 25M+ cardmember journeys. 6+ years shipping AI-driven products
+      across FinTech, EdTech, and aviation.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View selected work →</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </div>
+  <svg class="hero-graph" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#2F5D50" stroke-width="0.75" fill="none" opacity="0.55">
+      <line x1="200" y1="200" x2="80" y2="120"/>
+      <line x1="200" y1="200" x2="320" y2="90"/>
+      <line x1="200" y1="200" x2="350" y2="230"/>
+      <line x1="200" y1="200" x2="120" y2="320"/>
+      <line x1="200" y1="200" x2="270" y2="340"/>
+      <line x1="80" y1="120" x2="320" y2="90"/>
+      <line x1="320" y1="90" x2="350" y2="230"/>
+      <line x1="350" y1="230" x2="270" y2="340"/>
+      <line x1="120" y1="320" x2="270" y2="340"/>
+      <line x1="80" y1="120" x2="120" y2="320"/>
+      <line x1="80" y1="120" x2="350" y2="230"/>
+    </g>
+    <g fill="#2F5D50">
+      <circle cx="200" cy="200" r="9"/>
+      <circle cx="80" cy="120" r="6"/>
+      <circle cx="320" cy="90" r="6"/>
+      <circle cx="350" cy="230" r="6"/>
+      <circle cx="120" cy="320" r="6"/>
+      <circle cx="270" cy="340" r="6"/>
+    </g>
+  </svg>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 01 &nbsp;/&nbsp; about</span>
+      <h2 class="section-title">Product built at the intersection of data and AI.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <div class="about-photo-wrap">
+          <img src="Folder 1/Photo.jpeg" alt="Ninad Pawar — Product Manager" class="about-photo" width="280" height="280" loading="lazy">
+          <span class="about-photo-label">NINAD PAWAR</span>
+        </div>
+        <p>I'm a Product Manager focused on enterprise data platforms and applied AI.
+          At American Express, I lead product strategy across three data platforms —
+          the historical database, the network graph database, and the next-generation
+          customer intelligence platform — that quietly power real-time decisions
+          for tens of millions of cardmembers.</p>
+        <p>Before Amex, I built an AI course recommendation engine at Athena AI
+          that shipped to three universities and lifted student completion rates
+          by 35%. Earlier, I ran the NDC platform integration and predictive-maintenance
+          digital twin for a global airline. My work sits where ambiguous business
+          inputs, messy data, and multi-team engineering collide — and my job is
+          to make that collision produce something customers actually notice.</p>
+      </div>
+      <div class="stats">
+        <div>
+          <div class="stat-num">6+</div>
+          <div class="stat-label">years across FinTech, EdTech, and aviation</div>
+        </div>
+        <div>
+          <div class="stat-num">25M+</div>
+          <div class="stat-label">cardmember journeys touched by shipped platforms</div>
+        </div>
+        <div>
+          <div class="stat-num">45%</div>
+          <div class="stat-label">data retrieval time reduced via GenAI + LLM integration</div>
+        </div>
+        <div>
+          <div class="stat-num">95%</div>
+          <div class="stat-label">pilot adoption on FERPA/GDPR-compliant launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 02 &nbsp;/&nbsp; experience</span>
+      <h2 class="section-title">Where I've worked.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-meta mono">
+          <span class="tl-date">Oct 2025 — Present</span>
+          <span class="tl-loc">New York, NY</span>
+        </div>
+        <div>
+          <h3 class="tl-role">Product Manager</h3>
+          <div class="tl-company">American Express · Enterprise Data Management</div>
+          <ul class="tl-bullets">
+            <li>Direct concurrent strategy across three enterprise data platforms, aligning 25+ stakeholders across engineering, data science, and governance through OKR-driven prioritization — <strong>92% on-time delivery</strong>.</li>
+            <li>Spearheaded GenAI + LLM integration into the historical database with metadata management, data lineage, A2A protocols, and Responsible AI frameworks on GCP + BigQuery — <strong>45% faster retrieval, 60% faster compliance reporting</strong>.</li>
+            <li>Architected GCP cloud migration and AI-enhanced entity resolution for the network graph database, coordinating four engineering pods on BigQuery, Vertex AI, Cloud Composer, and Graph ML — <strong>40% lower latency, 12 domains covered</strong>.</li>
+            <li>Launched a zero-to-one roadmap for a next-generation customer intelligence platform enabling real-time personalization across <strong>25M+ journeys</strong> and 5 net-new journey categories.</li>
+            <li>Established the cross-product OKR framework and executive dashboards in Tableau + Looker — <strong>+35% roadmap predictability</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta mono">
+          <span class="tl-date">Jan 2024 — Oct 2025</span>
+          <span class="tl-loc">Remote</span>
+        </div>
+        <div>
+          <h3 class="tl-role">Product Manager</h3>
+          <div class="tl-company">Athena AI</div>
+          <ul class="tl-bullets">
+            <li>Drove vision and roadmap for an AI course recommendation engine, translating ambiguous business inputs into OKR-aligned outcomes with engineering, design, and university stakeholders — <strong>+30% delivery velocity, +35% completion rates</strong>.</li>
+            <li>Launched MVP through lean product development, validating product-market fit with 200 pilot users — <strong>+30% engagement</strong>.</li>
+            <li>Established a product analytics framework (Power BI, Looker) tracking behavior, conversion funnels, and feature adoption — <strong>+40% onboarding completion</strong>.</li>
+            <li>Operationalized GTM with three universities via FERPA/GDPR-compliant integrations, RBAC, and stakeholder training — <strong>95% pilot adoption</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta mono">
+          <span class="tl-date">Jul 2024 — Oct 2024</span>
+          <span class="tl-loc">Remote</span>
+        </div>
+        <div>
+          <h3 class="tl-role">Business Intelligence Intern</h3>
+          <div class="tl-company">Zoho Corporation</div>
+          <ul class="tl-bullets">
+            <li>Led product discovery via stakeholder workshops across CRM teams to prioritize high-impact AI recommendation features — <strong>+25% forecast accuracy</strong>.</li>
+            <li>Drove A/B and multivariate testing programs across 4,000 users — <strong>engagement 30% → 50%</strong>.</li>
+            <li>Launched AI-driven personalization through user segmentation — <strong>+20% retention, +15% engagement</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta mono">
+          <span class="tl-date">Jan 2020 — May 2023</span>
+          <span class="tl-loc">Mumbai, India</span>
+        </div>
+        <div>
+          <h3 class="tl-role">Senior Business Analyst / Business Analyst</h3>
+          <div class="tl-company">Bharat Aviation Consulting</div>
+          <ul class="tl-bullets">
+            <li>Led NDC platform integration for a global airline to digitize legacy GDS processes — <strong>+20% ancillary offer conversion</strong>.</li>
+            <li>Directed Azure cloud migration of legacy infrastructure — <strong>−45% data-center cost</strong>, faster release cycles.</li>
+            <li>Scaled predictive maintenance from prototype to fleet-wide digital twin — <strong>−40% A-check turnaround, −35% unplanned maintenance</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 03 &nbsp;/&nbsp; projects</span>
+      <h2 class="section-title">Selected work.</h2>
+    </div>
+    <div class="projects-grid">
+
+      <article class="project reveal">
+        <div class="mono project-tag">// enterprise ai · american express</div>
+        <h3 class="project-title">GenAI Integration into the Historical Database</h3>
+        <p class="project-desc">Integrated LLMs into a long-lived enterprise historical database with metadata management, data lineage, agent-to-agent protocols, and Responsible AI guardrails on GCP + BigQuery. Downstream teams got audit-ready datasets without a full warehouse migration.</p>
+        <div class="project-metrics">
+          <span class="project-metric">−45% retrieval time</span>
+          <span class="project-metric">−60% compliance cycle</span>
+          <span class="project-metric">15+ downstream teams</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="mono project-tag">// graph ml · american express</div>
+        <h3 class="project-title">Network Graph DB — Migration + Entity Resolution</h3>
+        <p class="project-desc">Architected end-to-end GCP migration and an AI-enhanced entity-resolution upgrade for the enterprise network graph. Coordinated four engineering pods re-platforming to BigQuery, Vertex AI, Cloud Composer, and Graph ML models.</p>
+        <div class="project-metrics">
+          <span class="project-metric">−40% latency</span>
+          <span class="project-metric">12 business domains</span>
+          <span class="project-metric">4 engineering pods</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="mono project-tag">// zero-to-one · american express</div>
+        <h3 class="project-title">Customer Intelligence Platform</h3>
+        <p class="project-desc">Launched a zero-to-one roadmap for a next-generation customer intelligence platform — pioneering an AI-agent behavioral tracking framework and event-driven architecture with contextual intelligence for real-time personalization.</p>
+        <div class="project-metrics">
+          <span class="project-metric">25M+ journeys</span>
+          <span class="project-metric">5 new categories</span>
+          <span class="project-metric">real-time</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="mono project-tag">// edtech ai · athena ai</div>
+        <h3 class="project-title">AI Course Recommendation Engine</h3>
+        <p class="project-desc">Owned vision and roadmap for a recommendation engine shipped to three universities. Translated fuzzy inputs into clear problem statements and OKR-aligned outcomes with engineering, design, and institutional stakeholders.</p>
+        <div class="project-metrics">
+          <span class="project-metric">+35% completion</span>
+          <span class="project-metric">95% pilot adoption</span>
+          <span class="project-metric">FERPA/GDPR-ready</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="mono project-tag">// saas experimentation · zoho</div>
+        <h3 class="project-title">AI-Driven CRM Personalization</h3>
+        <p class="project-desc">Drove A/B and multivariate testing across a 4,000-user CRM segment to prioritize AI recommendation features. Designed personalization surfaces through user segmentation and cross-functional collaboration.</p>
+        <div class="project-metrics">
+          <span class="project-metric">30% → 50% engagement</span>
+          <span class="project-metric">+25% forecast accuracy</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="mono project-tag">// aviation · bharat aviation</div>
+        <h3 class="project-title">Airline NDC Platform + Predictive Maintenance Twin</h3>
+        <p class="project-desc">Two mandates for a global airline client: digitize legacy GDS retail with an NDC platform, and scale a predictive-maintenance digital twin fleet-wide — reshaping how operations planned A-check turnarounds.</p>
+        <div class="project-metrics">
+          <span class="project-metric">+20% ancillary</span>
+          <span class="project-metric">−40% A-check time</span>
+          <span class="project-metric">−45% infra cost</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 04 &nbsp;/&nbsp; skills</span>
+      <h2 class="section-title">The toolkit.</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-group reveal">
+        <h3>Product Strategy &amp; Discovery</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Product vision &amp; roadmap</span>
+          <span class="skill-tag">RICE</span>
+          <span class="skill-tag">MoSCoW</span>
+          <span class="skill-tag">Problem framing</span>
+          <span class="skill-tag">Persona &amp; journey mapping</span>
+          <span class="skill-tag">Competitive analysis</span>
+          <span class="skill-tag">Executive alignment</span>
+          <span class="skill-tag">B2B &amp; B2C GTM</span>
+          <span class="skill-tag">Change management</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3>AI &amp; Emerging Technology</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">AI/ML use case discovery</span>
+          <span class="skill-tag">GenAI adoption</span>
+          <span class="skill-tag">Recommendation engines</span>
+          <span class="skill-tag">AI experimentation</span>
+          <span class="skill-tag">LLM integration</span>
+          <span class="skill-tag">Responsible AI</span>
+          <span class="skill-tag">Data lineage</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3>Delivery &amp; Experimentation</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Backlog management</span>
+          <span class="skill-tag">User stories</span>
+          <span class="skill-tag">Sprint planning</span>
+          <span class="skill-tag">Scrum / Kanban</span>
+          <span class="skill-tag">A/B testing</span>
+          <span class="skill-tag">Multivariate testing</span>
+          <span class="skill-tag">Hypothesis-driven dev</span>
+          <span class="skill-tag">MVP definition</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3>Data &amp; Analytics</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Looker</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">KPI / OKR definition</span>
+          <span class="skill-tag">Cohort analysis</span>
+          <span class="skill-tag">Conversion funnels</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3>Cloud, Tools &amp; Compliance</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Vertex AI</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">ECS / Lambda / Step Functions</span>
+          <span class="skill-tag">JIRA</span>
+          <span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Optimizely</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">FERPA / GDPR</span>
+          <span class="skill-tag">RBAC</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3>Customer Experience &amp; Research</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">User research (qual/quant)</span>
+          <span class="skill-tag">Customer interviews</span>
+          <span class="skill-tag">UX collaboration</span>
+          <span class="skill-tag">Retention optimization</span>
+          <span class="skill-tag">Onboarding design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 05 &nbsp;/&nbsp; education</span>
+      <h2 class="section-title">Studied.</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="mono edu-date">Dec 2024</div>
+        <h3 class="edu-degree">MS, Information Systems</h3>
+        <div class="edu-school">Pace University · Seidenberg School of Computer Science and Information Systems</div>
+        <div class="edu-focus">Concentration: Business Intelligence</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="mono edu-date">May 2020</div>
+        <h3 class="edu-degree">BS, Industrial Science</h3>
+        <div class="edu-school">Yashwantrao Chavan Maharashtra Open University</div>
+        <div class="edu-focus">Concentration: Management Information Systems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 06 &nbsp;/&nbsp; achievements</span>
+      <h2 class="section-title">Highlights &amp; recognition.</h2>
+    </div>
+
+    <!-- Quick badges row -->
+    <div class="achievements-grid" style="margin-bottom: 3rem;">
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>PMP Certified</h4>
+        <p>Project Management Institute — Jan 2025</p>
+      </div>
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>Strategy Consulting</h4>
+        <p>BCG</p>
+      </div>
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>AWS Data Analytics</h4>
+        <p>Amazon Web Services</p>
+      </div>
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>Six Sigma — Green Belt</h4>
+        <p>Process improvement — LinkedIn</p>
+      </div>
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>Google Analytics</h4>
+        <p>Behavioral analytics</p>
+      </div>
+      <div class="achievement reveal">
+        <div class="achievement-icon mono">◆</div>
+        <h4>Pace University — MS 2025</h4>
+        <p>Class of 2025, Seidenberg School</p>
+      </div>
+    </div>
+
+    <!-- Featured highlights -->
+    <div class="highlights-grid">
+
+      <!-- Mentor Testimonial -->
+      <div class="highlight-card full-width reveal">
+        <div class="highlight-source">
+          <div class="highlight-source-icon">in</div>
+          <div class="highlight-source-text">
+            <strong>Bharath Ram K</strong>
+            Senior Data Scientist · Ninad's mentor
+          </div>
+        </div>
+        <h3 class="highlight-title">Mentor Recommendation</h3>
+        <div class="highlight-excerpt">
+          <blockquote>
+            "What impressed me most about Ninad was his proactive approach. Rather than waiting for detailed instructions, he immediately took the initiative to dive into the project. He independently sourced datasets, explored various machine learning models, and constantly pushed the boundaries of what we could achieve."
+          </blockquote>
+          <p style="margin-top: 0.75rem;">"His recommendations demonstrated a clear understanding of both theoretical and practical aspects of machine learning, and his attention to detail was impressive… I highly recommend him to any team or organization that values dedication, initiative, and technical expertise."</p>
+        </div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">PREDICTIVE MAINTENANCE</span>
+          <span class="highlight-tag">MACHINE LEARNING</span>
+          <span class="highlight-tag">PROACTIVE LEADERSHIP</span>
+        </div>
+      </div>
+
+      <!-- Graduation -->
+      <div class="highlight-card reveal">
+        <div class="highlight-source">
+          <div class="highlight-source-icon">in</div>
+          <div class="highlight-source-text">
+            <strong>Ninad Pawar</strong>
+            LinkedIn Post
+          </div>
+        </div>
+        <h3 class="highlight-title">MS Graduation — Pace University, Class of 2025</h3>
+        <div class="highlight-excerpt">
+          <p>Completed Masters in Information Systems from Pace University's Seidenberg School. Earned PMP certification along the way, guided by Professor James J. Curry, Jr. and mentored by Rohit Jadhav.</p>
+          <p style="margin-top: 0.5rem; font-style: italic; color: var(--accent);">"Be comfortable in uncomfortable situations."</p>
+        </div>
+        <img src="Folder 2/achievement2.png" alt="Ninad Pawar — Pace University Class of 2025 graduation" class="highlight-img" loading="lazy">
+      </div>
+
+      <!-- Tableau Dashboard -->
+      <div class="highlight-card reveal">
+        <div class="highlight-source">
+          <div class="highlight-source-icon">in</div>
+          <div class="highlight-source-text">
+            <strong>Ninad Pawar</strong>
+            LinkedIn Post
+          </div>
+        </div>
+        <h3 class="highlight-title">Tableau HR Analytics Dashboard</h3>
+        <div class="highlight-excerpt">
+          <p>Built a comprehensive HR analytics dashboard transforming raw employee data into actionable insights — tracking 7,984 active employees, 8,950 total hired, and 966 terminations across 7 departments with demographic breakdowns and salary analysis.</p>
+        </div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">TABLEAU</span>
+          <span class="highlight-tag">DATA VISUALIZATION</span>
+          <span class="highlight-tag">HR ANALYTICS</span>
+        </div>
+        <img src="Folder 2/achievement3.png" alt="Tableau HR Analytics Dashboard showcase" class="highlight-img" loading="lazy">
+      </div>
+
+      <!-- Panelist Recognition -->
+      <div class="highlight-card reveal">
+        <div class="highlight-source">
+          <div class="highlight-source-icon">in</div>
+          <div class="highlight-source-text">
+            <strong>Kushang Rathod PMP®</strong>
+            Technical Project Manager
+          </div>
+        </div>
+        <h3 class="highlight-title">Invited Panelist — Pace University</h3>
+        <div class="highlight-excerpt">
+          <blockquote>
+            "I'm especially grateful to our esteemed panelists, Chinmay Naringrekar and Ninad Pawar, PMP for their thoughtful feedback and for sharing perspectives that pushed us to think beyond the classroom."
+          </blockquote>
+        </div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">PROJECT MANAGEMENT</span>
+          <span class="highlight-tag">PANEL JUDGE</span>
+          <span class="highlight-tag">MENTORSHIP</span>
+        </div>
+      </div>
+
+      <!-- Panel Judge -->
+      <div class="highlight-card reveal">
+        <div class="highlight-source">
+          <div class="highlight-source-icon">in</div>
+          <div class="highlight-source-text">
+            <strong>Ninad Pawar, PMP</strong>
+            Repost & Comment
+          </div>
+        </div>
+        <h3 class="highlight-title">Panel Judge — Change Management Course</h3>
+        <div class="highlight-excerpt">
+          <p>Served as a panel judge for the Project Management and Change Management course at Pace University. Evaluated IS project presentations and provided constructive feedback to emerging project leaders.</p>
+          <p style="margin-top: 0.5rem; font-style: italic; color: var(--accent);">"Thrilled to have served on the panel. I loved the uniqueness of our idea and truly enjoyed the presentation."</p>
+        </div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">CHANGE MANAGEMENT</span>
+          <span class="highlight-tag">ACADEMIC LEADERSHIP</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num mono">§ 07 &nbsp;/&nbsp; certifications</span>
+      <h2 class="section-title">Credentials.</h2>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <span class="cert-badge">PMP</span>
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert2.png" alt="PMP Certification — Project Management Institute" loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Project Management Professional (PMP)®</h4>
+          <p>Project Management Institute</p>
+          <span class="cert-date">Jan 2025 — Jan 2028</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert1.png" alt="Generative AI Overview for Project Managers — PMI" loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Generative AI Overview for Project Managers</h4>
+          <p>Project Management Institute</p>
+          <span class="cert-date">Nov 2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert3.png" alt="Professional Diploma in Technical Project Management — Udemy" loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Professional Diploma in Technical Project Management</h4>
+          <p>Udemy · MTF Institute</p>
+          <span class="cert-date">Nov 2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert6.png" alt="Agile Job Simulation — JPMorgan Chase & Co." loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Agile Job Simulation</h4>
+          <p>JPMorgan Chase &amp; Co. · Forage</p>
+          <span class="cert-date">Aug 2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert4.png" alt="Advanced Business Development: Communication and Negotiation — LinkedIn" loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Advanced Business Development: Communication &amp; Negotiation</h4>
+          <p>LinkedIn Learning</p>
+          <span class="cert-date">Jun 2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <div class="cert-img-wrap">
+          <img src="Folder 3/cert5.png" alt="Six Sigma: Green Belt — LinkedIn" loading="lazy">
+        </div>
+        <div class="cert-info">
+          <h4>Six Sigma: Green Belt</h4>
+          <p>LinkedIn Learning</p>
+          <span class="cert-date">Jun 2024</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="certLightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" aria-label="Close lightbox">[close]</button>
+  <img src="" alt="Certificate full view" id="lightboxImg">
+</div>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <span class="mono eyebrow">// § 08 / contact</span>
+      <h2 class="contact-title">Let's build something <em>useful.</em></h2>
+      <p class="hero-sub">
+        Currently at American Express, always open to a conversation about
+        enterprise data platforms, applied AI, or product craft.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ninadpawar0311@gmail.com" class="contact-link">
+          <span class="contact-link-label mono">// email</span>
+          <span class="contact-link-value">ninadpawar0311@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/ninad-pawar0311" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-label mono">// linkedin</span>
+          <span class="contact-link-value">/ninad-pawar0311</span>
+        </a>
+        <a href="https://ninad-pawar.me" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-label mono">// web</span>
+          <span class="contact-link-value">ninad-pawar.me</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="mono">© 2026 Ninad Pawar</div>
+    <div class="mono">Built with intent.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.textContent = open ? '[close]' : '[menu]';
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.textContent = '[menu]';
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox
+  function openLightbox(src) {
+    const lb = document.getElementById('certLightbox');
+    document.getElementById('lightboxImg').src = src;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    const lb = document.getElementById('certLightbox');
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
