@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,6 +41,23 @@ function syncDataHrefToHref() {
     }
   });
 }
+// Transfer data-aria-label and data-alt to aria-label and alt attributes after DOM renders
+function syncDataAriaAndAlt() {
+  // Sync aria-label attributes
+  document.querySelectorAll('[data-aria-label]').forEach(el => {
+    const dataAriaLabel = el.getAttribute('data-aria-label');
+    if (dataAriaLabel && !dataAriaLabel.includes('{{')) {
+      el.setAttribute('aria-label', dataAriaLabel);
+    }
+  });
+  // Sync alt attributes
+  document.querySelectorAll('img[data-alt]').forEach(img => {
+    const dataAlt = img.getAttribute('data-alt');
+    if (dataAlt && !dataAlt.includes('{{')) {
+      img.setAttribute('alt', dataAlt);
+    }
+  });
+}
 // Navigation helper for dynamic links with template variables
 function navigateTo(element) {
   const href = element.getAttribute('data-href');
@@ -53,6 +70,7 @@ function navigateTo(element) {
 function syncAllDynamicAttrs() {
   syncDataSrcToSrc();
   syncDataHrefToHref();
+  syncDataAriaAndAlt();
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', syncAllDynamicAttrs);
@@ -75,8 +93,8 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
   body{margin:0;background:oklch(98% 0.004 75);color:oklch(22% 0.015 60);font-family:'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
   a{color:oklch(46% 0.16 276);text-decoration:none}
   a:hover{color:oklch(40% 0.16 276)}
-  a:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px;border-radius:2px}
-  button:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px;border-radius:2px}
+  a:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px}
+  button:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px}
   ::selection{background:oklch(93% 0.03 276)}
   @keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
   @keyframes orbit-spin-reverse{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
@@ -137,7 +155,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">About</div>
     <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px">
       <div>
-        <h3 style="font-size:26px;font-weight:700;line-height:1.3;margin:0 0 20px">Translating ambiguous business problems into shipped, measurable AI products.</h3>
+        <h2 style="font-size:26px;font-weight:700;line-height:1.3;margin:0 0 20px">Translating ambiguous business problems into shipped, measurable AI products.</h2>
         <p style="font-size:15px;line-height:1.75;color:{{ t.text2 }};margin:0 0 16px">Over 7+ years across FinTech, EdTech, and Aviation, I've moved from business analysis into enterprise product leadership — most recently directing agentic AI development, GCP migrations, and customer-intelligence platforms at American Express while holding a 92% on-time delivery record across a complex, multi-product portfolio.</p>
         <p style="font-size:15px;line-height:1.75;color:{{ t.text2 }};margin:0">I'm PMP-certified with hands-on depth in BigQuery, Vertex AI, and SQL — strong enough to work shoulder-to-shoulder with engineering, not just hand off requirements.</p>
       </div>
@@ -152,7 +170,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
 
   <section id="experience" aria-label="Experience section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Experience</div>
-    <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Where I've built</h3>
+    <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">Where I've built</h2>
     <div style="display:flex;flex-direction:column">
       <sc-for list="{{ jobs }}" as="job" hint-placeholder-count="5">
         <div style="display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-top:1px solid {{ t.border }}">
@@ -171,7 +189,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
 
   <section id="skills" aria-label="Skills section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Skills</div>
-    <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">What I work with</h3>
+    <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">What I work with</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
       <sc-for list="{{ skillGroups }}" as="group" hint-placeholder-count="6">
         <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px">
@@ -188,10 +206,10 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
 
   <section id="projects" aria-label="Projects section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Selected Work</div>
-    <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Projects</h3>
+    <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">Projects</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <a href="javascript:void(0)" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="View {{ p.title }} case study" style="display:block;height:260px;position:relative;cursor:pointer">
+        <a href="#" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="" data-aria-label="View {{ p.title }} case study" style="display:block;height:260px;position:relative;cursor:pointer">
           <div style="position:absolute;inset:0;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;transition:opacity 0.25s ease" style-hover="opacity:0">
             <div>
               <div style="font-size:12px;color:{{ t.text2 }};font-weight:600;margin-bottom:8px">{{ p.company }} · {{ p.dates }}</div>
@@ -219,13 +237,13 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
 
   <section id="certifications" aria-label="Certifications section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Credentials</div>
-    <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Certifications</h3>
+    <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">Certifications</h2>
     <div style="overflow:hidden;margin:0 -32px;mask-image:linear-gradient(90deg,transparent,black 32px,black calc(100% - 32px),transparent)">
       <div style="display:flex;gap:16px;width:max-content;padding:0 32px 16px;animation:certs-scroll-left 55s linear infinite" style-hover="animation-play-state:paused">
         <sc-for list="{{ certsLoop }}" as="c" hint-placeholder-count="12">
           <div style="display:block;flex:none;width:200px;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;overflow:hidden;color:{{ t.text }}">
             <div style="width:100%;height:110px;background:{{ t.chip }};border-bottom:1px solid {{ t.border }};display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box">
-              <img src="" data-src="{{ c.img }}" alt="{{ c.title }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+              <img src="" data-src="{{ c.img }}" alt="" data-alt="{{ c.title }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
             </div>
             <div style="padding:12px 14px">
               <div style="font-size:12.5px;font-weight:700;line-height:1.3;margin-bottom:3px">{{ c.title }}</div>
@@ -238,7 +256,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
         <sc-for list="{{ certsLoopRev }}" as="c" hint-placeholder-count="12">
           <div style="display:block;flex:none;width:200px;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;overflow:hidden;color:{{ t.text }}">
             <div style="width:100%;height:110px;background:{{ t.chip }};border-bottom:1px solid {{ t.border }};display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box">
-              <img src="" data-src="{{ c.img }}" alt="{{ c.title }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+              <img src="" data-src="{{ c.img }}" alt="" data-alt="{{ c.title }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
             </div>
             <div style="padding:12px 14px">
               <div style="font-size:12.5px;font-weight:700;line-height:1.3;margin-bottom:3px">{{ c.title }}</div>
@@ -253,7 +271,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
   <section id="contact" aria-label="Contact section" style="padding:72px 0;border-top:1px solid {{ t.border }}">
     <div style="background:oklch(22% 0.015 60);border-radius:16px;padding:56px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;color:#fff">
       <div>
-        <h3 style="font-size:28px;font-weight:700;margin:0 0 14px">Let's talk product, AI strategy, or your next platform.</h3>
+        <h2 style="font-size:28px;font-weight:700;margin:0 0 14px">Let's talk product, AI strategy, or your next platform.</h2>
         <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.72);margin:0 0 28px;max-width:440px">Open to conversations on enterprise AI strategy, product leadership, and consulting engagements.</p>
         <a href="mailto:ninadpawar0311@gmail.com" style="background:{{ t.accentOnDark }};color:oklch(20% 0.02 276);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;display:inline-block">Email Me</a>
       </div>
