@@ -75,32 +75,37 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
   body{margin:0;background:oklch(98% 0.004 75);color:oklch(22% 0.015 60);font-family:'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
   a{color:oklch(46% 0.16 276);text-decoration:none}
   a:hover{color:oklch(40% 0.16 276)}
+  a:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px;border-radius:2px}
+  button:focus{outline:2px solid oklch(46% 0.16 276);outline-offset:2px;border-radius:2px}
   ::selection{background:oklch(93% 0.03 276)}
   @keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
   @keyframes orbit-spin-reverse{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
   @keyframes certs-scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes certs-scroll-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  /* Keyboard focus styles for accessibility */
+  *:focus-visible{outline:2px solid oklch(46% 0.16 276);outline-offset:2px}
 </style>
 </helmet>
 
 <div style="max-width:100%;margin:0 auto;padding:0 32px 120px;background:{{ t.bg }};color:{{ t.text }};min-height:100vh;transition:background 0.3s ease,color 0.3s ease">
 
-  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 0;background:{{ t.bgNav }};backdrop-filter:blur(10px);border-bottom:1px solid {{ t.border }}">
-    <a href="#top" style="font-weight:800;font-size:16px;letter-spacing:0.3px;color:{{ t.text }}">Ninad Pawar</a>
+  <nav aria-label="Main navigation" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 0;background:{{ t.bgNav }};backdrop-filter:blur(10px);border-bottom:1px solid {{ t.border }}">
+    <a href="#top" aria-label="Ninad Pawar - Home" style="font-weight:800;font-size:16px;letter-spacing:0.3px;color:{{ t.text }}">Ninad Pawar</a>
     <div style="display:flex;align-items:center;gap:28px">
       <a href="#about" style="color:{{ t.text2 }};font-size:14px;font-weight:500">About</a>
       <a href="#experience" style="color:{{ t.text2 }};font-size:14px;font-weight:500">Experience</a>
       <a href="#projects" style="color:{{ t.text2 }};font-size:14px;font-weight:500">Projects</a>
       <a href="#certifications" style="color:{{ t.text2 }};font-size:14px;font-weight:500">Certifications</a>
       <a href="#contact" style="color:{{ t.text2 }};font-size:14px;font-weight:500">Contact</a>
-      <a href="assets/resume/Ninad_Pawar_Resume.pdf" target="_blank" style="border:1px solid {{ t.text }};color:{{ t.text }};padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600">Resume</a>
+      <a href="assets/resume/Ninad_Pawar_Resume.pdf" target="_blank" aria-label="Download resume PDF" style="border:1px solid {{ t.text }};color:{{ t.text }};padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600">Resume</a>
       <button onClick="{{ toggleTheme }}" aria-label="Toggle dark mode" style="width:44px;height:24px;border-radius:12px;border:1px solid {{ t.borderStrong }};background:{{ t.chip }};position:relative;cursor:pointer;padding:0;flex:none">
         <span style="position:absolute;top:2px;left:{{ toggleLeft }};width:18px;height:18px;border-radius:50%;background:{{ t.accent }};transition:left 0.2s ease"></span>
       </button>
     </div>
   </nav>
 
-  <section id="top" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; padding: 88px 0 96px; position: relative">
+  <main>
+  <section id="top" aria-label="Hero section" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; padding: 88px 0 96px; position: relative">
     <div>
       <div style="font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:{{ t.accent }};margin-bottom:18px">Product Leader · AI &amp; Enterprise Transformation</div>
       <h1 style="font-size:56px;line-height:1.08;font-weight:800;letter-spacing:-1px;margin:0 0 22px">Ninad Pawar</h1>
@@ -112,7 +117,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
       </div>
     </div>
     <div style="display:flex;justify-content:center;align-items:center">
-      <div style="position:relative;width:349px;height:349px;display:flex;align-items:center;justify-content:center">
+      <div aria-hidden="true" style="position:relative;width:349px;height:349px;display:flex;align-items:center;justify-content:center">
         <div style="position:absolute;width:100%;height:100%;border-radius:50%;border:1px solid {{ t.border }}"></div>
         <div style="position:absolute;width:280px;height:280px;border-radius:50%;display:flex;align-items:center;justify-content:center">
           <div style="position:absolute;width:100%;height:100%;border-radius:50%;border:1px solid {{ t.border }}"></div>
@@ -128,7 +133,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="about" style="padding:64px 0;border-top:1px solid {{ t.border }}">
+  <section id="about" aria-label="About section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">About</div>
     <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px">
       <div>
@@ -145,7 +150,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="experience" style="padding:64px 0;border-top:1px solid {{ t.border }}">
+  <section id="experience" aria-label="Experience section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Experience</div>
     <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Where I've built</h3>
     <div style="display:flex;flex-direction:column">
@@ -164,7 +169,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="skills" style="padding:64px 0;border-top:1px solid {{ t.border }}">
+  <section id="skills" aria-label="Skills section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Skills</div>
     <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">What I work with</h3>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
@@ -181,12 +186,12 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="projects" style="padding:64px 0;border-top:1px solid {{ t.border }}">
+  <section id="projects" aria-label="Projects section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Selected Work</div>
     <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Projects</h3>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <a href="javascript:void(0)" data-href="{{ p.slug }}" onclick="return navigateTo(this)" style="display:block;height:260px;position:relative;cursor:pointer">
+        <a href="javascript:void(0)" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="View {{ p.title }} case study" style="display:block;height:260px;position:relative;cursor:pointer">
           <div style="position:absolute;inset:0;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;transition:opacity 0.25s ease" style-hover="opacity:0">
             <div>
               <div style="font-size:12px;color:{{ t.text2 }};font-weight:600;margin-bottom:8px">{{ p.company }} · {{ p.dates }}</div>
@@ -212,7 +217,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="certifications" style="padding:64px 0;border-top:1px solid {{ t.border }}">
+  <section id="certifications" aria-label="Certifications section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Credentials</div>
     <h3 style="font-size:26px;font-weight:700;margin:0 0 40px">Certifications</h3>
     <div style="overflow:hidden;margin:0 -32px;mask-image:linear-gradient(90deg,transparent,black 32px,black calc(100% - 32px),transparent)">
@@ -245,7 +250,7 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
     </div>
   </section>
 
-  <section id="contact" style="padding:72px 0;border-top:1px solid {{ t.border }}">
+  <section id="contact" aria-label="Contact section" style="padding:72px 0;border-top:1px solid {{ t.border }}">
     <div style="background:oklch(22% 0.015 60);border-radius:16px;padding:56px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;color:#fff">
       <div>
         <h3 style="font-size:28px;font-weight:700;margin:0 0 14px">Let's talk product, AI strategy, or your next platform.</h3>
@@ -255,27 +260,28 @@ setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
       <div style="display:flex;flex-direction:column;gap:16px;font-size:14px">
         <div style="display:flex;align-items:center;gap:12px">
           <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex:none">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="white" stroke-width="1.8"></rect><polyline points="3,5 12,13 21,5" stroke="white" stroke-width="1.8" fill="none"></polyline></svg>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="white" stroke-width="1.8"></rect><polyline points="3,5 12,13 21,5" stroke="white" stroke-width="1.8" fill="none"></polyline></svg>
           </div>
           <span>ninadpawar0311@gmail.com</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
           <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex:none">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 3h4l1.5 5-3 2c1.2 3 3.3 5.1 6.3 6.3l2-3 5 1.5v4c0 1-1 2-2 2-9 0-16-7-16-16 0-1 1-2 2-2z" stroke="white" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 3h4l1.5 5-3 2c1.2 3 3.3 5.1 6.3 6.3l2-3 5 1.5v4c0 1-1 2-2 2-9 0-16-7-16-16 0-1 1-2 2-2z" stroke="white" stroke-width="1.6" stroke-linejoin="round"></path></svg>
           </div>
           <span>(551) 344-5988</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
           <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex:none;font-size:12px;font-weight:800">in</div>
-          <a href="https://linkedin.com/in/ninad-pawar0311" style="color:{{ t.accentOnDark }}">linkedin.com/in/ninad-pawar0311</a>
+          <a href="https://linkedin.com/in/ninad-pawar0311" aria-label="LinkedIn profile" style="color:{{ t.accentOnDark }}">linkedin.com/in/ninad-pawar0311</a>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
           <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex:none;font-size:11px;font-weight:800">GH</div>
-          <a href="https://github.com/ninadp99" style="color:{{ t.accentOnDark }}">github.com/ninadp99</a>
+          <a href="https://github.com/ninadp99" aria-label="GitHub profile" style="color:{{ t.accentOnDark }}">github.com/ninadp99</a>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <footer style="padding:32px 0;display:flex;justify-content:space-between;font-size:12.5px;color:{{ t.text2 }}">
     <span>© 2026 Ninad Pawar</span>
