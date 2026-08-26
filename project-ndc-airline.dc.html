@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<dc-import name="CaseStudy" data="{{ data }}" hint-size="100%,100%"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { data: {
+      company: "Bharat Aviation Consulting", dates: "Jan 2020 — May 2023",
+      title: "NDC Airline Distribution Platform",
+      tagline: "Full case study coming soon — placeholder content below.",
+      results: [
+        { value: "—", label: "result to be added" },
+        { value: "—", label: "result to be added" },
+        { value: "—", label: "result to be added" }
+      ],
+      challenge: "Placeholder — the challenge write-up for this project will go here.",
+      approach: [
+        "Placeholder — approach step 1.",
+        "Placeholder — approach step 2.",
+        "Placeholder — approach step 3."
+      ],
+      tech: ["Tag 1", "Tag 2"],
+      prevSlug: "project-athena-ai.dc.html", prevTitle: "Athena AI Recommendation Engine",
+      nextSlug: "project-amex-platform.dc.html", nextTitle: "Customer Intelligence Platform"
+    } };
+  }
+}
+
+</script>
+</body>
+</html>
