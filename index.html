@@ -40,6 +40,19 @@ function syncDataHrefToHref() {
       link.removeAttribute('onclick'); // Remove the navigation handler since href is now set
     }
   });
+
+  // Force re-check after React/DC renders (give it time to render templates)
+  setTimeout(() => {
+    document.querySelectorAll('a[data-href]').forEach(link => {
+      const href = link.getAttribute('href');
+      const dataHref = link.getAttribute('data-href');
+      // If href is still empty or just '#', update it (DC may have rendered the data-href)
+      if ((!href || href === '#') && dataHref && !dataHref.includes('{{')) {
+        link.setAttribute('href', dataHref);
+        link.removeAttribute('onclick'); // Remove navigation handler since href is now set
+      }
+    });
+  }, 500); // Wait 500ms for template rendering to complete
 }
 // Transfer data-aria-label and data-alt to aria-label and alt attributes after DOM renders
 function syncDataAriaAndAlt() {
@@ -60,7 +73,14 @@ function syncDataAriaAndAlt() {
 }
 // Navigation helper for dynamic links with template variables
 function navigateTo(element) {
-  const href = element.getAttribute('data-href');
+  // First check if href was already synced
+  let href = element.getAttribute('href');
+
+  // If href is not set or is just '#', try data-href
+  if (!href || href === '#') {
+    href = element.getAttribute('data-href');
+  }
+
   if (href && !href.includes('{{')) {
     window.location.href = href;
   }
@@ -78,9 +98,15 @@ if (document.readyState === 'loading') {
   syncAllDynamicAttrs();
 }
 // Also run periodically for dynamically rendered content
-const observer = new MutationObserver(syncAllDynamicAttrs);
-observer.observe(document.body, { childList: true, subtree: true });
-setTimeout(() => observer.disconnect(), 5000); // Stop observing after 5 seconds
+// Add guard for document.body to prevent MutationObserver errors
+if (document.body) {
+  const observer = new MutationObserver(syncAllDynamicAttrs);
+  observer.observe(document.body, { childList: true, subtree: true });
+  // Stop observing after 5 seconds or when DC rendering is complete
+  setTimeout(() => observer.disconnect(), 5000);
+}
+// Force re-sync after DC component renders (typically 100-500ms)
+setTimeout(syncAllDynamicAttrs, 600);
 </script>
 </head>
 <body>
