@@ -235,26 +235,30 @@ setTimeout(syncAllDynamicAttrs, 600);
     <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">Projects</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <a href="#" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="" data-aria-label="View {{ p.title }} case study" style="display:block;height:260px;position:relative;cursor:pointer">
-          <div style="position:absolute;inset:0;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;transition:opacity 0.25s ease" style-hover="opacity:0">
-            <div>
-              <div style="font-size:12px;color:{{ t.text2 }};font-weight:600;margin-bottom:8px">{{ p.company }} · {{ p.dates }}</div>
-              <div style="font-size:17px;font-weight:700;margin-bottom:10px;color:{{ t.text }}">{{ p.title }}</div>
-              <p style="font-size:13px;line-height:1.6;color:{{ t.text2 }};margin:0">{{ p.blurb }}</p>
+        <a href="#" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="" data-aria-label="View {{ p.title }} case study" style="display:block;height:260px;perspective:1000px;cursor:pointer">
+          <div style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d" style-hover="transform:rotateY(180deg)">
+            <!-- Front Face -->
+            <div style="position:absolute;inset:0;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;backface-visibility:hidden">
+              <div>
+                <div style="font-size:12px;color:{{ t.text2 }};font-weight:600;margin-bottom:8px">{{ p.company }} · {{ p.dates }}</div>
+                <div style="font-size:17px;font-weight:700;margin-bottom:10px;color:{{ t.text }}">{{ p.title }}</div>
+                <p style="font-size:13px;line-height:1.6;color:{{ t.text2 }};margin:0">{{ p.blurb }}</p>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px">
+                <sc-for list="{{ p.tech }}" as="t" hint-placeholder-count="2">
+                  <span style="background:{{ t.chip }};border-radius:6px;padding:3px 8px;font-size:10px;color:{{ t.text2 }}">{{ t }}</span>
+                </sc-for>
+              </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px">
-              <sc-for list="{{ p.tech }}" as="t" hint-placeholder-count="2">
-                <span style="background:{{ t.chip }};border-radius:6px;padding:3px 8px;font-size:10px;color:{{ t.text2 }}">{{ t }}</span>
-              </sc-for>
+            <!-- Back Face -->
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg, {{ t.surface }} 0%, oklch(22% 0.015 60) 100%);border:1px solid {{ t.borderAlt }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;color:#fff;transform:rotateY(180deg);backface-visibility:hidden">
+              <div>
+                <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:{{ t.accentOnDark }};font-weight:700;margin-bottom:10px">Impact</div>
+                <div style="font-size:24px;font-weight:800;line-height:1.25;margin-bottom:10px;background:linear-gradient(135deg, {{ t.accentOnDark }} 30%, #F43F5E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ p.metric }}</div>
+                <p style="font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0">{{ p.metricDesc }}</p>
+              </div>
+              <div style="font-size:12px;font-weight:700;color:{{ t.accentOnDark }}">View case study →</div>
             </div>
-          </div>
-          <div style="position:absolute;inset:0;opacity:0;background:oklch(22% 0.015 60);border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;color:#fff;transition:opacity 0.25s ease" style-hover="opacity:1">
-            <div>
-              <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:{{ t.accentOnDark }};font-weight:700;margin-bottom:10px">Impact</div>
-              <div style="font-size:24px;font-weight:800;line-height:1.25;margin-bottom:10px">{{ p.metric }}</div>
-              <p style="font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0">{{ p.metricDesc }}</p>
-            </div>
-            <div style="font-size:12px;font-weight:700;color:{{ t.accentOnDark }}">View case study →</div>
           </div>
         </a>
       </sc-for>
