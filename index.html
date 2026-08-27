@@ -230,13 +230,24 @@ setTimeout(syncAllDynamicAttrs, 600);
     </div>
   </section>
 
+  <style>
+    /* 3D Flip Card Smooth Animation */
+    a[data-href] > div {
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+      transform-style: preserve-3d;
+    }
+    a[data-href]:hover > div {
+      transform: rotateY(180deg) !important;
+    }
+  </style>
+
   <section id="projects" aria-label="Projects section" style="padding:64px 0;border-top:1px solid {{ t.border }}">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{{ t.accent }};margin-bottom:14px">Selected Work</div>
     <h2 style="font-size:26px;font-weight:700;margin:0 0 40px">Projects</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
         <a href="#" data-href="{{ p.slug }}" onclick="return navigateTo(this)" aria-label="" data-aria-label="View {{ p.title }} case study" style="display:block;height:260px;perspective:1000px;-webkit-perspective:1000px;cursor:pointer">
-          <div style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;-webkit-transform-style:preserve-3d" style-hover="transform:rotateY(180deg)">
+          <div style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;-webkit-transform-style:preserve-3d">
             <!-- Front Face -->
             <div style="position:absolute;inset:0;background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;transform:rotateY(0deg);backface-visibility:hidden;-webkit-backface-visibility:hidden">
               <div>
